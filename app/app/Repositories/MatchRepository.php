@@ -24,21 +24,21 @@ class MatchRepository
     {
         $start = microtime(true);
         $fixture = new Fixture();
-        echo date('Y-m-d H:i:s') . PHP_EOL;
+        // echo date('Y-m-d H:i:s') . PHP_EOL;
         if ($fixtures = $fixture->getMatches()) {
             foreach ($fixtures as $key => $value) {
                 $pool = new Pool();
                 $iterationStart = microtime(true);
                 foreach ($value as $row) {
-                    echo 'php artisan play:match ' . $row['home_team_id'] . ' ' . $row['away_team_id'] . PHP_EOL;
+                    // echo 'php artisan play:match ' . $row['home_team_id'] . ' ' . $row['away_team_id'] . PHP_EOL;
                     $pool->add(new Process('php artisan play:match ' . $row['home_team_id'] . ' ' . $row['away_team_id']));
                 }
                 $pool->run();
                 $iteration = microtime(true) - $iterationStart;
-                echo "Iteration time: " . $iteration . PHP_EOL;
+                // echo "Iteration time: " . $iteration . PHP_EOL;
             }
-            $end = microtime(true) - $start;
-            echo "Total time: " . $end . PHP_EOL;
+            // $end = microtime(true) - $start;
+            // echo "Total time: " . $end . PHP_EOL;
             return null;
         }
         return 'Populate fixtures using php artisan fixture:create';
