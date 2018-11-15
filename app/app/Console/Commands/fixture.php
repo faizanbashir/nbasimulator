@@ -42,7 +42,7 @@ class fixture extends Command
      */
     public function handle()
     {
-        $this->fixture->scheduleMatches();
         $this->info('Schedule for NBA matches created');
+        $this->fixture->scheduleMatches();
     }
 }

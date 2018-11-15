@@ -48,9 +48,9 @@ class playmatch extends Command
         try {
             $homeId = (int) $this->argument('homeId');
             $awayId = (int) $this->argument('awayId');
-            $result = $this->match->playMatch($homeId, $awayId);
-            $this->info($result);
-            // $this->info('Playing NBA match between x vs x');
+            $this->info('Simulating NBA match');
+            $this->match->playMatch($homeId, $awayId);
+            $this->info('Simulation over');
         } catch (\Exception $e) {
             $this->error($e);
         }
