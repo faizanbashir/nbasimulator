@@ -8,6 +8,10 @@ The nessesary binaries and software for this simulator are packaged with Docker,
 ### Configuration
 The configuration for PHP, Nginx and MySQL is defined in folders with corresponding names. The root password for MySQL is defined in the `docker-compose.yml` file using the environment variable `MYSQL_ROOT_PASSWORD`. After running the containers the user needs to update the DB config in the laravel project `.env` file. For more info on specific configuration of with Docker Compose read [How To Set Up Laravel, Nginx, and MySQL with Docker Compose](https://www.digitalocean.com/community/tutorials/how-to-set-up-laravel-nginx-and-mysql-with-docker-compose).
 
+### Installing Composer dependencies
+Use the following command to install the composer dependencies.
+- `docker exec -it app compsoer install`
+
 ### Migrating the DB
 Use the follwing command to migrate and seed the db after configuring connection with the DB.
 - `docker exec -it app php artisan migrate`
